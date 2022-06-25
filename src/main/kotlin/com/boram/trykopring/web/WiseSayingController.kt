@@ -1,9 +1,11 @@
 package com.boram.trykopring.web
 
+import com.boram.trykopring.common.constant.WiseSayingApiPath
 import com.boram.trykopring.service.WiseSayingService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.servlet.view.RedirectView
 
 @RestController
 @RequestMapping("wise")
@@ -19,5 +21,21 @@ class WiseSayingController {
         println(saying)
 
         return saying
+    }
+
+    @RequestMapping("/redirect-advice")
+    fun redirectAdvice():RedirectView {
+        val redirect :RedirectView = RedirectView()
+        redirect.setUrl(WiseSayingApiPath);
+
+        return redirect
+    }
+
+    @RequestMapping("/advice")
+    fun advice():String {
+        val advice = wiseSayingService.getRandomAdvice()
+
+        println(advice)
+        return advice
     }
 }
