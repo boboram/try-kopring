@@ -3,10 +3,8 @@ package com.boram.trykopring.service
 import com.boram.trykopring.common.constant.WiseSayingApiPath
 import com.boram.trykopring.dto.WiseSaying
 import com.google.gson.Gson
-import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import org.assertj.core.api.Assertions.assertThat
-import org.json.JSONObject
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
@@ -48,7 +46,7 @@ class TestWiseSayingService {
         assertThat(advice.id).isNotNull()
     }
 
-    fun callWiseSayingApi():WiseSaying {
+    private fun callWiseSayingApi():WiseSaying {
         val restTemplate = RestTemplate()
 
         val response = restTemplate.getForEntity(WiseSayingApiPath, String::class.java)

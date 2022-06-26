@@ -33,7 +33,7 @@ class WiseSayingController {
 
     @RequestMapping("/advice")
     fun advice():String {
-        val advice = wiseSayingService.getRandomAdvice()
+        val advice = wiseSayingService.getOneAdvice()
 
         println(advice)
         return advice
