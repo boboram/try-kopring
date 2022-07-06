@@ -25,7 +25,7 @@ class WiseSayingController {
 
     @RequestMapping("/redirect-advice")
     fun redirectAdvice():RedirectView {
-        val redirect :RedirectView = RedirectView()
+        val redirect = RedirectView()
         redirect.setUrl(WiseSayingApiPath);
 
         return redirect
